@@ -1,24 +1,41 @@
+import math
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPRegressor
 
+# regr = MLPRegressor(
+#    hidden_layer_sizes=(2), #sim 2
+#    max_iter=8000,
+#    activation='relu', #{'identity', 'logistic', 'tanh', 'relu'},
+#    solver='adam',
+#    learning_rate='adaptive',
+#    n_iter_no_change=600
+# )
+
+regr1 = MLPRegressor(hidden_layer_sizes=(4,2),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
+
+regr2 = MLPRegressor(hidden_layer_sizes=(6,4,3),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
+
+regr3 = MLPRegressor(hidden_layer_sizes=(8,4,2),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
+
+regr = regr3
+
 print('Carregando Arquivo de teste')
-arquivo = np.load('teste2.npy')
+
+arquivo = np.load('./data/teste5.npy')
+
 x = arquivo[0]
 y = np.ravel(arquivo[1])
 
-regr = MLPRegressor(hidden_layer_sizes=(4,2), #sim 2
-                    max_iter=12000,
-                    activation='relu', #{'identity', 'logistic', 'tanh', 'relu'},
-                    solver='adam',
-                    learning_rate = 'adaptive',
-                    n_iter_no_change=800)
-                
 media = 0
+erros = []
+
 for i in range(10):
     # print('Treinando RNA')
     regr = regr.fit(x,y)
     
+    erros.append(regr.best_loss_)
     media += regr.best_loss_
 
     # print('Preditor')
@@ -40,8 +57,18 @@ for i in range(10):
     plt.plot(x,y_est,linewidth=2)
 
     #plt.show()
-    plt.savefig(f'./imagens/teste3/sim1/E{i+1}.png')
+    plt.savefig(f'./imagens/teste5/sim3/E{i+1}.png')
 
 media = media / 10
 
+variancia = 0
+
+for i in erros:
+    variancia += math.pow(i-media, 2)
+
+desvio = math.sqrt(variancia/10)
+
+print("media: ", end=" ")
 print(media)
+print("desvio: ", end=" ")
+print(desvio)
