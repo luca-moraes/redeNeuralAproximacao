@@ -15,15 +15,15 @@ from sklearn.neural_network import MLPRegressor
 
 regr1 = MLPRegressor(hidden_layer_sizes=(4,2),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
 
-regr2 = MLPRegressor(hidden_layer_sizes=(6,4,3),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
+regr2 = MLPRegressor(hidden_layer_sizes=(50,40,30),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
 
 regr3 = MLPRegressor(hidden_layer_sizes=(70,60,50,40,30,20),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
 
-regr = regr3
+regr = regr2
 
 print('Carregando Arquivo de teste')
 
-arquivo = np.load('./data/teste5.npy')
+arquivo = np.load('./data/teste4.npy')
 
 x = arquivo[0]
 y = np.ravel(arquivo[1])
@@ -57,7 +57,7 @@ for i in range(10):
     plt.plot(x,y_est,linewidth=2)
 
     #plt.show()
-    plt.savefig(f'./imagens/teste5/sim3/E{i+1}.png')
+    plt.savefig(f'./imagens/teste4/sim1/E{i+1}.png')
 
 media = media / 10
 
