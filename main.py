@@ -17,7 +17,7 @@ regr1 = MLPRegressor(hidden_layer_sizes=(4,2),max_iter=12000,activation='relu',s
 
 regr2 = MLPRegressor(hidden_layer_sizes=(6,4,3),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
 
-regr3 = MLPRegressor(hidden_layer_sizes=(8,4,2),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
+regr3 = MLPRegressor(hidden_layer_sizes=(70,60,50,40,30,20),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
 
 regr = regr3
 
