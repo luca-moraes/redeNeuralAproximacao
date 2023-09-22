@@ -13,17 +13,34 @@ from sklearn.neural_network import MLPRegressor
 #    n_iter_no_change=600
 # )
 
-regr1 = MLPRegressor(hidden_layer_sizes=(4,2),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
+regr1_sim1 = MLPRegressor(hidden_layer_sizes=(50,40),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
+#media:  0.3029508388863308
+#desvio:  0.01890619579751386
+regr1_sim2 = MLPRegressor(hidden_layer_sizes=(50,40,30),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
+#media:  0.28139403108203775
+#desvio:  0.004863126700328806
+regr1_sim3 = MLPRegressor(hidden_layer_sizes=(70,60),max_iter=12000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=600)
+#media:  0.2892289751444392
+#desvio:  0.010376975968887255
 
-regr2 = MLPRegressor(hidden_layer_sizes=(50,40,30),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
 
-regr3 = MLPRegressor(hidden_layer_sizes=(70,60,50,40,30,20),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
+regr2_sim1 = MLPRegressor(hidden_layer_sizes=(50,40,30),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
+#media:  5.471932747561779
+#desvio:  0.09947904174134116
+regr2_sim2 = MLPRegressor(hidden_layer_sizes=(50,40),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
+#media:  6.58950778697848
+#desvio:  2.60148529753164
+regr2_sim3 = MLPRegressor(hidden_layer_sizes=(60,50),max_iter=16000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=800)
+#media:  5.6320480546623735
+#desvio:  0.37222792753303663
 
-regr = regr2
+regr3 = MLPRegressor(hidden_layer_sizes=(100,90),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
+
+regr = regr1_sim3
 
 print('Carregando Arquivo de teste')
 
-arquivo = np.load('./data/teste4.npy')
+arquivo = np.load('./data/teste3.npy')
 
 x = arquivo[0]
 y = np.ravel(arquivo[1])
@@ -57,7 +74,7 @@ for i in range(10):
     plt.plot(x,y_est,linewidth=2)
 
     #plt.show()
-    plt.savefig(f'./imagens/teste4/sim1/E{i+1}.png')
+    plt.savefig(f'./imagens/teste3/sim3/E{i+1}.png')
 
 media = media / 10
 
