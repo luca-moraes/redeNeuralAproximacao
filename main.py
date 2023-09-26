@@ -34,13 +34,18 @@ regr2_sim3 = MLPRegressor(hidden_layer_sizes=(60,50),max_iter=16000,activation='
 #media:  5.6320480546623735
 #desvio:  0.37222792753303663
 
-regr3 = MLPRegressor(hidden_layer_sizes=(100,90),max_iter=22000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1000)
+regr5_sim1 = MLPRegressor(hidden_layer_sizes=(30,20,10),max_iter=322000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=3200)
 
-regr = regr1_sim3
+regr5_sim2 = MLPRegressor(hidden_layer_sizes=(60,70,50,20),max_iter=322000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=5000)
+
+regr5_sim3 = MLPRegressor(hidden_layer_sizes=(80,40),max_iter=82000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=1400)
+
+
+regr = regr5_sim2
 
 print('Carregando Arquivo de teste')
 
-arquivo = np.load('./data/teste3.npy')
+arquivo = np.load('./data/teste5.npy')
 
 x = arquivo[0]
 y = np.ravel(arquivo[1])
@@ -48,7 +53,7 @@ y = np.ravel(arquivo[1])
 media = 0
 erros = []
 
-for i in range(10):
+for i in range(1):
     # print('Treinando RNA')
     regr = regr.fit(x,y)
     
@@ -74,7 +79,7 @@ for i in range(10):
     plt.plot(x,y_est,linewidth=2)
 
     #plt.show()
-    plt.savefig(f'./imagens/teste3/sim3/E{i+1}.png')
+    plt.savefig(f'./imagens/teste5/sim1/E{i+1}.png')
 
 media = media / 10
 
