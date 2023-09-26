@@ -34,7 +34,7 @@ regr2_sim3 = MLPRegressor(hidden_layer_sizes=(60,50),max_iter=16000,activation='
 #media:  5.6320480546623735
 #desvio:  0.37222792753303663
 
-regr5_sim1 = MLPRegressor(hidden_layer_sizes=(30,20,10),max_iter=322000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=3200)
+regr5_sim1 = MLPRegressor(hidden_layer_sizes=(100,80,70,40,20,10),max_iter=522000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=22000)
 
 regr5_sim2 = MLPRegressor(hidden_layer_sizes=(80,70,60,20),max_iter=822000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=32000)
 
