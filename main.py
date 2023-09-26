@@ -36,7 +36,7 @@ regr2_sim3 = MLPRegressor(hidden_layer_sizes=(60,50),max_iter=16000,activation='
 
 regr5_sim1 = MLPRegressor(hidden_layer_sizes=(100,80,70,40,20,10),max_iter=522000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=22000)
 
-regr5_sim2 = MLPRegressor(hidden_layer_sizes=(60,70,50,20),max_iter=322000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=5000)
+regr5_sim2 = MLPRegressor(hidden_layer_sizes=(80,70,60,20),max_iter=822000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=32000)
 
 regr5_sim3 = MLPRegressor(hidden_layer_sizes=(120,60),max_iter=322000,activation='relu',solver='adam',learning_rate='adaptive',n_iter_no_change=22000)
 
